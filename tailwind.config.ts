@@ -12,9 +12,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Inter Tight"', "Inter", "sans-serif"],
+        display: ['"Space Grotesk"', "Inter", "sans-serif"],
         sans: ['Inter', "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "monospace"],
+      },
+      backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-mesh': 'var(--gradient-mesh)',
       },
       colors: {
         border: "hsl(var(--border))",
