@@ -12,8 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Archivo Black"', "sans-serif"],
-        sans: ['Hind', "system-ui", "sans-serif"],
+        display: ['"Inter Tight"', "Inter", "sans-serif"],
+        sans: ['Inter', "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono"', "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",

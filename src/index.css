@@ -2,50 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CaixiSerra — Navy Trust design system. All colors HSL. */
+/* CaixiSerra — Swiss Minimal design system. All colors HSL. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 60% 8%;
+    /* Swiss palette — paper, ink, single red accent */
+    --background: 40 20% 97%;          /* #f7f5f1 paper off-white */
+    --foreground: 0 0% 8%;             /* near-black ink */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 60% 8%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 60% 8%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Navy Trust */
-    --primary: 222 62% 15%;            /* #0f1b3d */
-    --primary-foreground: 210 30% 96%;
-    --primary-glow: 211 47% 43%;       /* #3b6fa0 */
+    --primary: 0 0% 8%;                /* ink */
+    --primary-foreground: 40 20% 97%;
+    --primary-glow: 0 0% 25%;
 
-    --secondary: 213 53% 25%;          /* #1e3a5f */
-    --secondary-foreground: 210 30% 96%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 215 30% 95%;
-    --muted-foreground: 215 16% 40%;
+    --muted: 40 15% 93%;
+    --muted-foreground: 0 0% 38%;
 
-    --accent: 211 47% 43%;             /* #3b6fa0 */
-    --accent-foreground: 0 0% 100%;
+    --accent: 8 78% 52%;               /* Swiss vermillion red */
+    --accent-foreground: 40 20% 97%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 25% 88%;
-    --input: 215 25% 88%;
-    --ring: 211 47% 43%;
+    --border: 0 0% 86%;
+    --input: 0 0% 86%;
+    --ring: 8 78% 52%;
 
-    --surface: 215 35% 97%;            /* #e8edf3 */
-    --ink: 222 62% 10%;
+    --surface: 40 25% 95%;
+    --ink: 0 0% 5%;
+    --rule: 0 0% 12%;                  /* hairline rule color */
 
-    --radius: 0.25rem;
+    --radius: 0;                        /* Swiss = no rounding */
 
-    /* Gradients & shadows */
-    --gradient-hero: linear-gradient(135deg, hsl(222 62% 10% / 0.85) 0%, hsl(213 53% 25% / 0.55) 60%, hsl(211 47% 43% / 0.25) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    --shadow-elegant: 0 25px 60px -25px hsl(222 62% 15% / 0.45);
-    --shadow-card: 0 10px 30px -15px hsl(222 62% 15% / 0.25);
+    --shadow-elegant: 0 1px 0 0 hsl(var(--rule));
+    --shadow-card: none;
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -60,27 +60,19 @@
   }
 
   .dark {
-    --background: 222 62% 6%;
-    --foreground: 210 30% 96%;
-    --card: 222 50% 10%;
-    --card-foreground: 210 30% 96%;
-    --popover: 222 50% 10%;
-    --popover-foreground: 210 30% 96%;
-    --primary: 210 30% 96%;
-    --primary-foreground: 222 62% 10%;
-    --secondary: 213 40% 18%;
-    --secondary-foreground: 210 30% 96%;
-    --muted: 213 30% 15%;
-    --muted-foreground: 215 20% 70%;
-    --accent: 211 47% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 40%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 213 30% 18%;
-    --input: 213 30% 18%;
-    --ring: 211 47% 50%;
-    --surface: 222 50% 10%;
-    --ink: 210 30% 96%;
+    --background: 0 0% 6%;
+    --foreground: 40 20% 95%;
+    --card: 0 0% 9%;
+    --card-foreground: 40 20% 95%;
+    --primary: 40 20% 95%;
+    --primary-foreground: 0 0% 6%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 8 78% 55%;
+    --border: 0 0% 18%;
+    --surface: 0 0% 9%;
+    --ink: 40 20% 95%;
+    --rule: 40 20% 95%;
   }
 }
 
@@ -89,29 +81,49 @@
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Hind', system-ui, sans-serif;
-    font-feature-settings: "ss01", "cv11";
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11", "tnum";
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   h1, h2, h3, h4, h5, .font-display {
-    font-family: 'Archivo Black', 'Hind', sans-serif;
-    letter-spacing: -0.02em;
-    line-height: 0.95;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    font-weight: 700;
   }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .gradient-hero { background: var(--gradient-hero); }
-  .gradient-accent { background: var(--gradient-accent); }
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
-  .shadow-card { box-shadow: var(--shadow-card); }
 
-  .marquee {
-    animation: marquee 40s linear infinite;
+  /* Swiss hairline rule */
+  .rule-t { border-top: 1px solid hsl(var(--rule)); }
+  .rule-b { border-bottom: 1px solid hsl(var(--rule)); }
+
+  /* Index numbering used across the site */
+  .swiss-index {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
+
+  .marquee { animation: marquee 50s linear infinite; }
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
+
+  /* Hover underline for links */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--transition-smooth);
+  }
+  .link-underline:hover { background-size: 100% 1px; }
 }
