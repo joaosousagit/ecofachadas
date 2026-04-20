@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { ArrowUpRight, Phone, Mail, MapPin, Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroFacade from "@/assets/hero-facade.jpg";
 import serviceWindows from "@/assets/service-windows.jpg";
@@ -11,173 +11,167 @@ const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 };
 
 const PHONE = "+351917069477";
 const PHONE_DISPLAY = "+351 917 069 477";
 const EMAIL = "geral@caixiserra.pt";
+const ADDRESS = "Santa Catarina da Serra, Leiria";
+
+const services = [
+  { title: "Janelas em Alumínio", desc: "Sistemas de corte térmico, batente, oscilo-batente e correr." },
+  { title: "Portas e Portões", desc: "Entrada principal, garagem, basculantes e seccionadas." },
+  { title: "PVC Premium", desc: "Soluções com isolamento térmico e acústico superior." },
+  { title: "Claraboias e Coberturas", desc: "Iluminação natural com vidros estruturais." },
+  { title: "Fachadas e Muros Cortina", desc: "Engenharia de envolvente para edifícios." },
+  { title: "Obras Técnicas", desc: "Soluções à medida para projetos exigentes." },
+];
+
+const projects = [
+  { title: "Moradia V4", location: "Leiria", img: projectHouse, year: "2024", category: "Residencial" },
+  { title: "Escola Pública", location: "Marinha Grande", img: projectSchool, year: "2023", category: "Institucional" },
+  { title: "Claraboia Industrial", location: "Batalha", img: projectSkylight, year: "2024", category: "Indústria" },
+];
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
-      {/* HEADER — fixed Swiss bar */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur rule-b">
-        <div className="container grid grid-cols-12 items-center h-16 gap-4">
-          <a href="#top" className="col-span-3 flex items-center gap-2">
-            <span className="font-display text-xl tracking-tight">Caixi/Serra</span>
-            <span className="swiss-index text-muted-foreground hidden sm:inline">— Est. Leiria</span>
+    <div className="min-h-screen bg-background text-foreground">
+      {/* HEADER */}
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/60">
+        <div className="container flex items-center justify-between h-20">
+          <a href="#top" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-hero flex items-center justify-center text-primary-foreground font-display font-bold text-lg">C</div>
+            <div className="leading-tight">
+              <div className="font-display text-lg font-semibold tracking-tight">CaixiSerra</div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Caixilharia · Leiria</div>
+            </div>
           </a>
-          <nav className="col-span-6 hidden lg:flex items-center justify-center gap-10 swiss-index">
-            <a href="#trabalho" className="link-underline">01 Trabalho</a>
-            <a href="#servicos" className="link-underline">02 Serviços</a>
-            <a href="#estudio" className="link-underline">03 Estúdio</a>
-            <a href="#contacto" className="link-underline">04 Contacto</a>
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
+            <a href="#servicos" className="text-foreground/70 hover:text-foreground transition">Serviços</a>
+            <a href="#projetos" className="text-foreground/70 hover:text-foreground transition">Projetos</a>
+            <a href="#sobre" className="text-foreground/70 hover:text-foreground transition">Sobre</a>
+            <a href="#contactos" className="text-foreground/70 hover:text-foreground transition">Contactos</a>
           </nav>
-          <div className="col-span-9 lg:col-span-3 flex items-center justify-end gap-4">
-            <a href={`tel:${PHONE}`} className="hidden md:inline swiss-index link-underline">{PHONE_DISPLAY}</a>
-            <Button asChild className="rounded-none h-10 px-4 bg-foreground text-background hover:bg-accent">
-              <a href="#contacto" className="swiss-index">Orçamento ↗</a>
+          <div className="flex items-center gap-3">
+            <a href={`tel:${PHONE}`} className="hidden md:flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition">
+              <Phone className="w-4 h-4" /> {PHONE_DISPLAY}
+            </a>
+            <Button asChild className="rounded-full h-11 px-5 bg-primary hover:bg-primary/90 text-primary-foreground shadow-elegant">
+              <a href="#contactos">Pedir Orçamento</a>
             </Button>
           </div>
         </div>
       </header>
 
-      {/* HERO — editorial */}
-      <section id="top" className="relative rule-b">
-        <div className="container grid grid-cols-12 gap-4 pt-16 lg:pt-24 pb-10">
-          <div className="col-span-12 lg:col-span-8">
-            <div className="flex items-center gap-3 mb-10 swiss-index text-muted-foreground">
-              <span className="w-8 h-px bg-foreground" />
-              <span>00 / Caixilharia de Alumínio &amp; PVC</span>
+      {/* HERO */}
+      <section id="top" className="relative overflow-hidden bg-mesh">
+        <div className="container py-20 lg:py-28 grid lg:grid-cols-12 gap-10 items-center">
+          <motion.div {...fadeUp} className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-mono uppercase tracking-wider mb-8">
+              <Sparkles className="w-3 h-3" /> Desde 2010 · Leiria
             </div>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display text-[15vw] lg:text-[10vw] leading-[0.85] tracking-[-0.045em] text-balance"
-            >
-              Precisão<br />
-              em cada<br />
-              <span className="italic font-light">milímetro.</span>
-            </motion.h1>
-          </div>
-          <div className="col-span-12 lg:col-span-4 flex flex-col justify-end gap-8 mt-10 lg:mt-0">
-            <p className="text-base leading-relaxed text-muted-foreground max-w-sm">
-              Estúdio especialista em portas, janelas, claraboias e obras técnicas — desde 2014, sediado em
-              Santa Catarina da Serra.
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-balance">
+              Caixilharia que <span className="bg-gradient-hero bg-clip-text text-transparent">eleva</span> cada espaço.
+            </h1>
+            <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+              Especialistas em alumínio e PVC. Janelas, portas, claraboias e fachadas — projetadas, fabricadas e instaladas com rigor técnico em Santa Catarina da Serra.
             </p>
-            <div className="flex flex-col gap-3">
-              <a href="#trabalho" className="swiss-index flex items-center justify-between rule-t pt-3 link-underline">
-                Ver projetos recentes <ArrowUpRight className="h-4 w-4" />
-              </a>
-              <a href="#contacto" className="swiss-index flex items-center justify-between rule-t pt-3 link-underline">
-                Pedir orçamento <ArrowUpRight className="h-4 w-4" />
-              </a>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Button asChild size="lg" className="rounded-full h-14 px-8 bg-primary hover:bg-primary/90 shadow-elegant text-base">
+                <a href="#contactos" className="flex items-center gap-2">Pedir Orçamento <ArrowUpRight className="w-5 h-5" /></a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-full h-14 px-8 border-2 text-base">
+                <a href="#projetos">Ver Projetos</a>
+              </Button>
             </div>
-          </div>
-        </div>
+            <div className="mt-12 flex flex-wrap gap-8 text-sm">
+              {[
+                { k: "15+", v: "anos de experiência" },
+                { k: "500+", v: "obras concluídas" },
+                { k: "100%", v: "garantia de qualidade" },
+              ].map((s) => (
+                <div key={s.k}>
+                  <div className="font-display text-3xl font-bold text-primary">{s.k}</div>
+                  <div className="text-muted-foreground">{s.v}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-        {/* Hero image — full bleed within container */}
-        <div className="container">
-          <div className="relative aspect-[16/8] overflow-hidden rule-t rule-b">
-            <img
-              src={heroFacade}
-              alt="Fachada de alumínio executada pela CaixiSerra"
-              width={1920}
-              height={960}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end text-background">
-              <div className="swiss-index bg-foreground/80 backdrop-blur px-3 py-1.5">
-                Obra · Fachada técnica · Leiria 2024
-              </div>
-              <div className="swiss-index bg-foreground/80 backdrop-blur px-3 py-1.5 hidden md:block">
-                01 / 04
-              </div>
+          <motion.div {...fadeUp} transition={{ duration: 0.9, delay: 0.15 }} className="lg:col-span-5 relative">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-elegant">
+              <img src={heroFacade} alt="Fachada de alumínio CaixiSerra" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
             </div>
-          </div>
+            <div className="absolute -bottom-6 -left-6 bg-card border border-border rounded-2xl p-5 shadow-card max-w-[240px]">
+              <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">Projeto em destaque</div>
+              <div className="font-display font-semibold">Fachada Residencial · Leiria</div>
+            </div>
+          </motion.div>
         </div>
+      </section>
 
-        {/* Stats strip */}
-        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-4 py-8 rule-b">
-          {[
-            { k: "10+", v: "Anos em obra" },
-            { k: "200+", v: "Projetos entregues" },
-            { k: "100%", v: "Por medida" },
-            { k: "24h", v: "Resposta a pedidos" },
-          ].map((s) => (
-            <div key={s.v} className="flex items-baseline gap-3">
-              <div className="font-display text-4xl lg:text-5xl tracking-tighter">{s.k}</div>
-              <div className="swiss-index text-muted-foreground">{s.v}</div>
-            </div>
+      {/* SERVIÇOS — bento grid */}
+      <section id="servicos" className="container py-24 lg:py-32">
+        <motion.div {...fadeUp} className="max-w-3xl mb-16">
+          <div className="text-xs font-mono uppercase tracking-widest text-primary mb-4">02 · Serviços</div>
+          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight">
+            Soluções completas em <span className="text-primary">caixilharia</span>.
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((s, i) => (
+            <motion.div
+              key={s.title}
+              {...fadeUp}
+              transition={{ duration: 0.6, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+              className="group relative bg-card border border-border rounded-3xl p-8 hover:border-primary/40 hover:shadow-elegant transition-all duration-500"
+            >
+              <div className="text-xs font-mono text-muted-foreground mb-6">{String(i + 1).padStart(2, "0")}</div>
+              <h3 className="font-display text-2xl font-semibold mb-3">{s.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
+              <ArrowUpRight className="absolute top-8 right-8 w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:rotate-45 transition-all duration-500" />
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* MARQUEE */}
-      <div className="overflow-hidden py-5 rule-b">
-        <div className="flex marquee whitespace-nowrap font-display text-3xl lg:text-5xl tracking-tighter">
-          {Array.from({ length: 2 }).map((_, i) => (
-            <div key={i} className="flex shrink-0 items-center gap-10 pr-10">
-              {["Portas", "Janelas", "Claraboias", "Fachadas", "PVC", "Alumínio", "Por medida"].map((w) => (
-                <span key={w} className="flex items-center gap-10">
-                  <span>{w}</span>
-                  <span className="text-accent">●</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* TRABALHO — projetos */}
-      <section id="trabalho" className="py-20 lg:py-28 rule-b">
+      {/* PROJETOS */}
+      <section id="projetos" className="bg-surface text-primary-foreground py-24 lg:py-32">
         <div className="container">
-          <motion.div {...fadeUp} className="grid grid-cols-12 gap-4 mb-16">
-            <div className="col-span-12 lg:col-span-3 swiss-index text-muted-foreground">
-              <span className="text-accent">●</span> 01 — Trabalho selecionado
+          <motion.div {...fadeUp} className="flex flex-wrap items-end justify-between gap-6 mb-16">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-widest text-primary-glow mb-4">03 · Projetos</div>
+              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight max-w-2xl">
+                Trabalho que <span className="text-primary-glow">fala</span> por nós.
+              </h2>
             </div>
-            <h2 className="col-span-12 lg:col-span-9 font-display text-5xl lg:text-7xl tracking-tighter text-balance">
-              Obras recentes em moradia, indústria<br className="hidden lg:block" /> e equipamento público.
-            </h2>
+            <p className="text-white/60 max-w-sm">Uma seleção de obras recentes em Leiria e região centro.</p>
           </motion.div>
 
-          {/* Project list — editorial table style */}
-          <div className="rule-t">
-            {[
-              { n: "01", img: projectSchool, title: "Escola Maria Rosa Araújo", category: "Equipamento público", year: "2024", location: "Leiria" },
-              { n: "02", img: projectSkylight, title: "Claraboia Redonda", category: "Iluminação natural", year: "2023", location: "Coimbra" },
-              { n: "03", img: projectHouse, title: "Casa Habitacional", category: "Moradia", year: "2024", location: "Marinha Grande" },
-              { n: "04", img: serviceWindows, title: "Janelas Oscilo-batente", category: "Por medida", year: "2024", location: "Leiria" },
-            ].map((p, i) => (
+          <div className="grid md:grid-cols-3 gap-5">
+            {projects.map((p, i) => (
               <motion.a
                 key={p.title}
-                href="#contacto"
+                href="#contactos"
                 {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.05 }}
-                className="group block rule-b"
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+                className="group block"
               >
-                <div className="grid grid-cols-12 gap-4 py-6 items-center hover:bg-muted/40 transition-colors duration-500 px-2">
-                  <div className="col-span-1 swiss-index text-muted-foreground">{p.n}</div>
-                  <div className="col-span-11 lg:col-span-5 font-display text-2xl lg:text-3xl tracking-tight">
-                    {p.title}
-                  </div>
-                  <div className="hidden lg:block col-span-2 swiss-index text-muted-foreground">{p.category}</div>
-                  <div className="hidden lg:block col-span-1 swiss-index text-muted-foreground">{p.location}</div>
-                  <div className="hidden lg:block col-span-1 swiss-index text-muted-foreground">{p.year}</div>
-                  <div className="col-span-12 lg:col-span-2 flex items-center justify-end gap-2 swiss-index">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity">Ver projeto</span>
-                    <ArrowUpRight className="h-4 w-4 group-hover:text-accent transition-colors" />
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-4">
+                  <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/90 text-foreground text-xs font-mono uppercase tracking-wider">
+                    {p.category}
                   </div>
                 </div>
-                {/* Reveal image on hover */}
-                <div className="grid grid-cols-12 gap-4 px-2">
-                  <div className="col-start-2 col-span-10 max-h-0 group-hover:max-h-[400px] overflow-hidden transition-all duration-700">
-                    <div className="aspect-[21/9] overflow-hidden mb-6">
-                      <img src={p.img} alt={p.title} loading="lazy" className="w-full h-full object-cover" />
-                    </div>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="font-display text-xl font-semibold">{p.title}</h3>
+                    <div className="text-white/60 text-sm">{p.location} · {p.year}</div>
                   </div>
+                  <ArrowUpRight className="w-5 h-5 text-white/60 group-hover:text-primary-glow group-hover:rotate-45 transition-all duration-500" />
                 </div>
               </motion.a>
             ))}
@@ -185,224 +179,122 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SERVIÇOS */}
-      <section id="servicos" className="py-20 lg:py-28 rule-b bg-surface">
-        <div className="container">
-          <motion.div {...fadeUp} className="grid grid-cols-12 gap-4 mb-16">
-            <div className="col-span-12 lg:col-span-3 swiss-index text-muted-foreground">
-              <span className="text-accent">●</span> 02 — O que fazemos
-            </div>
-            <h2 className="col-span-12 lg:col-span-9 font-display text-5xl lg:text-7xl tracking-tighter text-balance">
-              Quatro disciplinas. Uma equipa.
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-12 gap-x-4 gap-y-12">
-            {[
-              { n: "/01", title: "Portas & Janelas", desc: "Sistemas batente, oscilo-batente e correr em alumínio e PVC com corte térmico. Vidros duplos, isolamento acústico e soluções de segurança." },
-              { n: "/02", title: "Claraboias", desc: "Iluminação natural por medida — fixas ou abertas, redondas ou retangulares. Estanquidade certificada e integração arquitetónica." },
-              { n: "/03", title: "Obras Técnicas", desc: "Montagem de fachadas, divisórias e estruturas para projetos de grande envergadura — equipamento público, indústria e arquitetura." },
-              { n: "/04", title: "Por Medida", desc: "Produção de produtos em alumínio e PVC desenhados ao milímetro. Da medição ao acabamento final, controlado pela nossa equipa." },
-            ].map((s, i) => (
-              <motion.div
-                key={s.title}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.06 }}
-                className="col-span-12 md:col-span-6 lg:col-span-3 rule-t pt-6"
-              >
-                <div className="flex items-center justify-between mb-8 swiss-index text-muted-foreground">
-                  <span>{s.n}</span>
-                  <Plus className="h-4 w-4" />
-                </div>
-                <h3 className="font-display text-2xl lg:text-3xl tracking-tight mb-4 text-balance">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </motion.div>
-            ))}
+      {/* SOBRE */}
+      <section id="sobre" className="container py-24 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
+        <motion.div {...fadeUp} className="lg:col-span-5">
+          <div className="aspect-square rounded-3xl overflow-hidden shadow-elegant">
+            <img src={serviceWindows} alt="Oficina CaixiSerra" className="w-full h-full object-cover" />
           </div>
-        </div>
+        </motion.div>
+        <motion.div {...fadeUp} transition={{ duration: 0.8, delay: 0.15 }} className="lg:col-span-7">
+          <div className="text-xs font-mono uppercase tracking-widest text-primary mb-4">04 · Sobre</div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-8">
+            Uma equipa que entende cada detalhe.
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            A CaixiSerra nasceu em Santa Catarina da Serra com o objetivo de oferecer soluções de caixilharia de excelência. Combinamos experiência técnica, materiais premium e atenção ao detalhe em cada obra — do projeto residencial à grande envolvente arquitectónica.
+          </p>
+          <ul className="grid sm:grid-cols-2 gap-4 mt-10">
+            {[
+              "Fabrico próprio em Leiria",
+              "Materiais certificados",
+              "Instalação por equipa interna",
+              "Garantia em todos os trabalhos",
+              "Orçamento sem compromisso",
+              "Acompanhamento pós-obra",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Check className="w-4 h-4 text-primary" />
+                </div>
+                <span className="text-sm font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
-      {/* ESTÚDIO / SOBRE */}
-      <section id="estudio" className="py-20 lg:py-28 rule-b">
-        <div className="container grid grid-cols-12 gap-4">
-          <motion.div {...fadeUp} className="col-span-12 lg:col-span-3">
-            <div className="swiss-index text-muted-foreground sticky top-24">
-              <span className="text-accent">●</span> 03 — Estúdio
-            </div>
-          </motion.div>
-
-          <motion.div {...fadeUp} className="col-span-12 lg:col-span-9">
-            <p className="font-display text-3xl lg:text-5xl tracking-tighter text-balance leading-[1.05] mb-16">
-              A CaixiSerra é uma equipa jovem e multidisciplinar, dedicada a executar
-              cada trabalho com a <span className="text-accent">excelência</span> que ele exige —
-              de pequenos arranjos a obras técnicas de grande envergadura.
-            </p>
-
-            <div className="grid grid-cols-12 gap-4 rule-t pt-10">
-              {[
-                { n: "01", title: "Exigência", desc: "Trabalho detalhado, feito ao pormenor. Parceiros e colaboradores especialistas garantem que a excelência é o nosso patamar — não o teto." },
-                { n: "02", title: "Responsabilidade", desc: "Asseguramos serviços e produtos que satisfazem as exigências dos clientes e cumprem todos os requisitos legais e normativos aplicáveis." },
-                { n: "03", title: "Qualidade", desc: "Especialistas na área do alumínio executam projetos com qualidade elevada, dentro do prazo, cumprindo todas as normas regulamentares." },
-              ].map((v, i) => (
-                <motion.div
-                  key={v.title}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: i * 0.08 }}
-                  className="col-span-12 md:col-span-4 flex flex-col"
-                >
-                  <div className="swiss-index text-accent mb-6">{v.n}</div>
-                  <h3 className="font-display text-2xl tracking-tight mb-4">{v.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-16 grid grid-cols-12 gap-4">
-              <div className="col-span-12 lg:col-span-7 aspect-[4/3] overflow-hidden">
-                <img src={serviceWindows} alt="Equipa CaixiSerra a executar instalação" loading="lazy" className="w-full h-full object-cover" />
-              </div>
-              <div className="col-span-12 lg:col-span-5 flex flex-col justify-end gap-6">
-                <div className="swiss-index text-muted-foreground">— Sede</div>
-                <p className="font-display text-2xl lg:text-3xl tracking-tight leading-tight">
-                  Rua da Pedreira, Pedrome<br />
-                  2945-183 Santa Catarina da Serra<br />
-                  <span className="text-muted-foreground">Leiria, Portugal</span>
-                </p>
-                <a
-                  href="https://goo.gl/maps/WNTVgYktzyZTzRQr8"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="swiss-index flex items-center gap-2 link-underline w-fit"
-                >
-                  Abrir no mapa <ArrowUpRight className="h-4 w-4" />
+      {/* CONTACTOS */}
+      <section id="contactos" className="container pb-24">
+        <motion.div {...fadeUp} className="relative bg-gradient-hero rounded-[2.5rem] p-10 md:p-16 overflow-hidden text-primary-foreground">
+          <div className="absolute inset-0 bg-mesh opacity-40" />
+          <div className="relative grid lg:grid-cols-2 gap-12">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-widest text-white/70 mb-4">05 · Contacto</div>
+              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                Vamos dar forma ao seu projeto.
+              </h2>
+              <p className="text-white/80 text-lg mb-10 max-w-md">
+                Fale connosco para um orçamento gratuito e personalizado. Respondemos em 24 horas.
+              </p>
+              <div className="space-y-5">
+                <a href={`tel:${PHONE}`} className="flex items-center gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center backdrop-blur"><Phone className="w-5 h-5" /></div>
+                  <div>
+                    <div className="text-xs font-mono uppercase tracking-wider text-white/60">Telefone</div>
+                    <div className="font-display text-lg group-hover:underline">{PHONE_DISPLAY}</div>
+                  </div>
                 </a>
+                <a href={`mailto:${EMAIL}`} className="flex items-center gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center backdrop-blur"><Mail className="w-5 h-5" /></div>
+                  <div>
+                    <div className="text-xs font-mono uppercase tracking-wider text-white/60">Email</div>
+                    <div className="font-display text-lg group-hover:underline">{EMAIL}</div>
+                  </div>
+                </a>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center backdrop-blur"><MapPin className="w-5 h-5" /></div>
+                  <div>
+                    <div className="text-xs font-mono uppercase tracking-wider text-white/60">Localização</div>
+                    <div className="font-display text-lg">{ADDRESS}</div>
+                  </div>
+                </div>
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* CONTACTO */}
-      <section id="contacto" className="py-20 lg:py-28 bg-foreground text-background">
-        <div className="container grid grid-cols-12 gap-4">
-          <motion.div {...fadeUp} className="col-span-12 lg:col-span-3 swiss-index text-background/60">
-            <span className="text-accent">●</span> 04 — Contacto
-          </motion.div>
-
-          <motion.div {...fadeUp} className="col-span-12 lg:col-span-9">
-            <h2 className="font-display text-5xl lg:text-8xl tracking-tighter mb-16 text-balance">
-              Vamos construir algo<br />
-              <span className="italic font-light">à medida.</span>
-            </h2>
-
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-12 lg:col-span-5 flex flex-col gap-10">
+            <form
+              className="bg-background/95 backdrop-blur rounded-3xl p-8 text-foreground space-y-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                const body = `Nome: ${fd.get("nome")}%0DTelefone: ${fd.get("telefone")}%0DMensagem: ${fd.get("mensagem")}`;
+                window.location.href = `mailto:${EMAIL}?subject=Pedido de Orçamento&body=${body}`;
+              }}
+            >
+              <div>
+                <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Nome</label>
+                <input name="nome" required className="w-full mt-1 h-12 px-4 rounded-xl bg-muted border border-border focus:border-primary focus:outline-none transition" />
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <div className="swiss-index text-background/50 mb-3">Telefone</div>
-                  <a href={`tel:${PHONE}`} className="font-display text-3xl lg:text-4xl tracking-tight link-underline">
-                    {PHONE_DISPLAY}
-                  </a>
-                  <div className="swiss-index text-background/50 mt-2">Chamada para rede móvel nacional</div>
+                  <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Email</label>
+                  <input name="email" type="email" required className="w-full mt-1 h-12 px-4 rounded-xl bg-muted border border-border focus:border-primary focus:outline-none transition" />
                 </div>
                 <div>
-                  <div className="swiss-index text-background/50 mb-3">Email</div>
-                  <a href={`mailto:${EMAIL}`} className="font-display text-2xl lg:text-3xl tracking-tight link-underline break-all">
-                    {EMAIL}
-                  </a>
-                </div>
-                <div>
-                  <div className="swiss-index text-background/50 mb-3">Horário</div>
-                  <p className="text-base text-background/80">
-                    Seg–Sex · 09:00 — 18:00<br />
-                    <span className="text-background/50">Visitas a obra com marcação prévia</span>
-                  </p>
+                  <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Telefone</label>
+                  <input name="telefone" className="w-full mt-1 h-12 px-4 rounded-xl bg-muted border border-border focus:border-primary focus:outline-none transition" />
                 </div>
               </div>
-
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const data = new FormData(e.currentTarget);
-                  const body = `Nome: ${data.get("name")}%0A%0AContacto: ${data.get("phone")}%0A%0AMensagem: ${data.get("message")}`;
-                  window.location.href = `mailto:${EMAIL}?subject=Pedido de orçamento — CaixiSerra&body=${body}`;
-                }}
-                className="col-span-12 lg:col-span-7 lg:pl-10 lg:border-l border-background/20"
-              >
-                <div className="swiss-index text-background/50 mb-8">— Pedido de orçamento</div>
-                <div className="space-y-8">
-                  <div>
-                    <label className="swiss-index text-background/50 block mb-2">01 Nome *</label>
-                    <input
-                      name="name"
-                      required
-                      className="w-full bg-transparent border-0 border-b border-background/30 py-3 focus:outline-none focus:border-accent transition-colors text-background placeholder:text-background/30 text-lg"
-                      placeholder="O seu nome"
-                    />
-                  </div>
-                  <div>
-                    <label className="swiss-index text-background/50 block mb-2">02 Email ou telefone *</label>
-                    <input
-                      name="phone"
-                      required
-                      className="w-full bg-transparent border-0 border-b border-background/30 py-3 focus:outline-none focus:border-accent transition-colors text-background placeholder:text-background/30 text-lg"
-                      placeholder="Como o contactamos"
-                    />
-                  </div>
-                  <div>
-                    <label className="swiss-index text-background/50 block mb-2">03 Descrição do projeto *</label>
-                    <textarea
-                      name="message"
-                      required
-                      rows={4}
-                      className="w-full bg-transparent border-0 border-b border-background/30 py-3 focus:outline-none focus:border-accent transition-colors text-background placeholder:text-background/30 resize-none text-lg"
-                      placeholder="Tipologia, localização, prazo desejado…"
-                    />
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  className="mt-10 group flex items-center justify-between w-full rule-t pt-6 swiss-index hover:text-accent transition-colors"
-                >
-                  <span>Enviar pedido</span>
-                  <ArrowUpRight className="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </button>
-              </form>
-            </div>
-          </motion.div>
-        </div>
+              <div>
+                <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Mensagem</label>
+                <textarea name="mensagem" required rows={4} className="w-full mt-1 px-4 py-3 rounded-xl bg-muted border border-border focus:border-primary focus:outline-none transition resize-none" />
+              </div>
+              <Button type="submit" className="w-full h-13 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
+                Enviar Pedido <ArrowUpRight className="w-4 h-4" />
+              </Button>
+            </form>
+          </div>
+        </motion.div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-foreground text-background pt-16 pb-6 border-t border-background/15">
-        <div className="container">
-          <div className="grid grid-cols-12 gap-4 pb-16">
-            <div className="col-span-12 lg:col-span-6">
-              <div className="font-display text-7xl lg:text-9xl tracking-tighter leading-none">
-                Caixi/<br />Serra<span className="text-accent">.</span>
-              </div>
-            </div>
-            <div className="col-span-6 lg:col-span-2 flex flex-col gap-3 swiss-index text-background/60">
-              <div className="text-background/40">Site</div>
-              <a href="#trabalho" className="link-underline w-fit">Trabalho</a>
-              <a href="#servicos" className="link-underline w-fit">Serviços</a>
-              <a href="#estudio" className="link-underline w-fit">Estúdio</a>
-              <a href="#contacto" className="link-underline w-fit">Contacto</a>
-            </div>
-            <div className="col-span-6 lg:col-span-2 flex flex-col gap-3 swiss-index text-background/60">
-              <div className="text-background/40">Social</div>
-              <a href="https://facebook.com/caixiserra" target="_blank" rel="noreferrer" className="link-underline w-fit">Facebook ↗</a>
-              <a href={`mailto:${EMAIL}`} className="link-underline w-fit">Email ↗</a>
-              <a href={`tel:${PHONE}`} className="link-underline w-fit">Telefone ↗</a>
-            </div>
-            <div className="col-span-12 lg:col-span-2 flex flex-col gap-3 swiss-index text-background/60">
-              <div className="text-background/40">Sede</div>
-              <p>Rua da Pedreira, Pedrome<br />2945-183 Santa Catarina<br />da Serra · Leiria</p>
-            </div>
+      <footer className="border-t border-border">
+        <div className="container py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-gradient-hero flex items-center justify-center text-primary-foreground font-display font-bold text-sm">C</div>
+            <span>© {new Date().getFullYear()} CaixiSerra · Caixilharia de Alumínio</span>
           </div>
-          <div className="rule-t border-background/20 pt-6 flex flex-wrap items-center justify-between gap-3 swiss-index text-background/40">
-            <div>© {new Date().getFullYear()} CaixiSerra · Caixilharia de Alumínio</div>
-            <div>Santa Catarina da Serra · Leiria · PT</div>
-          </div>
+          <div className="font-mono text-xs uppercase tracking-wider">{ADDRESS}</div>
         </div>
       </footer>
     </div>
