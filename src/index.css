@@ -4,45 +4,45 @@
 
 /* CaixiSerra — Swiss Minimal design system. All colors HSL. */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
-    /* Swiss palette — paper, ink, single red accent */
-    --background: 40 20% 97%;          /* #f7f5f1 paper off-white */
-    --foreground: 0 0% 8%;             /* near-black ink */
+    /* CaixiSerra — corporate blue + steel grays (from original site) */
+    --background: 210 20% 98%;         /* near-white with cool tint */
+    --foreground: 215 30% 12%;         /* deep slate */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card-foreground: 215 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 215 30% 12%;
 
-    --primary: 0 0% 8%;                /* ink */
-    --primary-foreground: 40 20% 97%;
-    --primary-glow: 0 0% 25%;
+    --primary: 212 88% 32%;            /* CaixiSerra corporate blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 205 90% 50%;       /* bright cyan-blue */
 
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 210 25% 94%;
+    --secondary-foreground: 215 30% 12%;
 
-    --muted: 40 15% 93%;
-    --muted-foreground: 0 0% 38%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 42%;
 
-    --accent: 8 78% 52%;               /* Swiss vermillion red */
-    --accent-foreground: 40 20% 97%;
+    --accent: 205 90% 50%;             /* bright accent blue */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 86%;
-    --input: 0 0% 86%;
-    --ring: 8 78% 52%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 212 88% 32%;
 
-    --surface: 40 25% 95%;
-    --ink: 0 0% 5%;
-    --rule: 0 0% 12%;                  /* hairline rule color */
+    --surface: 215 35% 16%;            /* dark steel surface */
+    --ink: 215 30% 12%;
+    --rule: 210 20% 85%;
 
-    --radius: 0;                        /* Swiss = no rounding */
+    --radius: 1rem;                    /* soft rounded — modern */
 
     --shadow-elegant: 0 1px 0 0 hsl(var(--rule));
     --shadow-card: none;
