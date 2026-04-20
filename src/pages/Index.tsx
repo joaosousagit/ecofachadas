@@ -11,7 +11,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 };
 
 const PHONE = "+351917069477";
@@ -75,7 +75,7 @@ const Index = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="max-w-4xl"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-8 bg-background/10 backdrop-blur border border-primary-foreground/20 text-primary-foreground/90 text-xs uppercase tracking-[0.2em]">
