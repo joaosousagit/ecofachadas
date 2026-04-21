@@ -269,6 +269,37 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="bg-secondary/40 border-y border-border py-24 lg:py-32">
+        <div className="container">
+          <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-16">
+            <div className="lg:col-span-3 editorial-num text-muted-foreground">(04) — FAQ</div>
+            <div className="lg:col-span-9">
+              <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
+                Perguntas <span className="italic-serif text-accent">frequentes</span>.
+              </h2>
+            </div>
+          </motion.div>
+          <motion.div {...fadeUp} className="max-w-4xl">
+            <Accordion type="single" collapsible className="rule-t">
+              {faqs.map((f, i) => (
+                <AccordionItem key={i} value={`f-${i}`} className="rule-b border-0 px-1">
+                  <AccordionTrigger className="font-display text-xl md:text-2xl py-6 text-left hover:no-underline">
+                    <span className="flex items-baseline gap-4">
+                      <span className="editorial-num text-accent text-sm">{String(i + 1).padStart(2, "0")}</span>
+                      {f.q}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-foreground/70 text-lg leading-relaxed pl-12 pr-4 pb-6">
+                    {f.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CONTACTO — inverted dark editorial */}
       <section id="contacto" className="bg-foreground text-background">
         <div className="container py-24 lg:py-32">
