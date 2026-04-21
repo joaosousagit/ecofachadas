@@ -408,7 +408,7 @@ const Index = () => {
         <div className="container py-24 lg:py-32">
           <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-16">
             <div className="lg:col-span-3 editorial-num text-background/60">
-              (04) — Contacto
+              (07) — Contacto
             </div>
             <div className="lg:col-span-9">
               <h2 className="font-display text-5xl md:text-8xl tracking-tight text-balance">
