@@ -2,52 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CaixiSerra — Swiss Minimal design system. All colors HSL. */
+/* Ecofachadas — Editorial Architectural design system. All colors HSL.
+   Palette derived from logo: vivid green + deep blue + neutral grays */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
-    /* CaixiSerra — corporate blue + steel grays (from original site) */
-    --background: 210 20% 98%;         /* near-white with cool tint */
-    --foreground: 215 30% 12%;         /* deep slate */
+    /* Editorial paper background, deep ink foreground */
+    --background: 40 20% 97%;            /* warm off-white "paper" */
+    --foreground: 220 40% 10%;           /* near-black ink */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 30% 12%;
+    --card-foreground: 220 40% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 30% 12%;
+    --popover-foreground: 220 40% 10%;
 
-    --primary: 212 88% 32%;            /* CaixiSerra corporate blue */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 205 90% 50%;       /* bright cyan-blue */
+    /* PRIMARY = blue from logo */
+    --primary: 222 65% 38%;              /* logo deep blue */
+    --primary-foreground: 40 20% 97%;
+    --primary-glow: 222 80% 55%;
 
-    --secondary: 210 25% 94%;
-    --secondary-foreground: 215 30% 12%;
-
-    --muted: 210 20% 95%;
-    --muted-foreground: 215 15% 42%;
-
-    --accent: 205 90% 50%;             /* bright accent blue */
+    /* ACCENT = green from logo */
+    --accent: 130 55% 42%;               /* logo vibrant green */
     --accent-foreground: 0 0% 100%;
+    --accent-soft: 130 50% 92%;
+
+    --secondary: 40 15% 92%;
+    --secondary-foreground: 220 40% 10%;
+
+    --muted: 40 15% 94%;
+    --muted-foreground: 220 12% 38%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 212 88% 32%;
+    --border: 40 12% 86%;
+    --input: 40 12% 86%;
+    --ring: 222 65% 38%;
 
-    --surface: 215 35% 16%;            /* dark steel surface */
-    --ink: 215 30% 12%;
-    --rule: 210 20% 85%;
+    --surface: 220 45% 8%;               /* deep ink surface */
+    --ink: 220 40% 10%;
+    --rule: 220 10% 80%;
 
-    --radius: 1rem;                    /* soft rounded — modern */
+    --radius: 0.25rem;                   /* editorial: very subtle */
 
-    --shadow-elegant: 0 24px 60px -20px hsl(212 88% 32% / 0.25);
-    --shadow-card: 0 8px 32px -12px hsl(215 30% 12% / 0.08);
-    --gradient-hero: linear-gradient(135deg, hsl(212 88% 32%) 0%, hsl(205 90% 50%) 100%);
-    --gradient-mesh: radial-gradient(at 20% 20%, hsl(205 90% 50% / 0.18) 0px, transparent 50%), radial-gradient(at 80% 80%, hsl(212 88% 32% / 0.22) 0px, transparent 50%);
+    --shadow-elegant: 0 30px 80px -30px hsl(222 65% 38% / 0.18);
+    --shadow-card: 0 12px 40px -16px hsl(220 40% 10% / 0.10);
+
+    --gradient-hero: linear-gradient(135deg, hsl(222 65% 38%) 0%, hsl(130 55% 42%) 100%);
+    --gradient-eco: linear-gradient(180deg, hsl(130 55% 42%) 0%, hsl(222 65% 38%) 100%);
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -62,19 +67,19 @@
   }
 
   .dark {
-    --background: 215 35% 8%;
-    --foreground: 210 20% 96%;
-    --card: 215 30% 12%;
-    --card-foreground: 210 20% 96%;
-    --primary: 205 90% 55%;
-    --primary-foreground: 215 35% 8%;
-    --muted: 215 25% 16%;
-    --muted-foreground: 215 15% 65%;
-    --accent: 205 90% 55%;
-    --border: 215 25% 20%;
-    --surface: 215 30% 12%;
-    --ink: 210 20% 96%;
-    --rule: 215 25% 22%;
+    --background: 220 45% 6%;
+    --foreground: 40 20% 96%;
+    --card: 220 40% 10%;
+    --card-foreground: 40 20% 96%;
+    --primary: 130 55% 50%;
+    --primary-foreground: 220 45% 6%;
+    --accent: 222 80% 60%;
+    --muted: 220 30% 14%;
+    --muted-foreground: 220 10% 65%;
+    --border: 220 25% 18%;
+    --surface: 220 40% 10%;
+    --ink: 40 20% 96%;
+    --rule: 220 25% 22%;
   }
 }
 
@@ -89,45 +94,47 @@
     text-rendering: optimizeLegibility;
   }
   h1, h2, h3, h4, h5, .font-display {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    font-weight: 600;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+    font-weight: 500;
   }
-  .bg-mesh { background-image: var(--gradient-mesh); }
-  .bg-hero-gradient { background-image: var(--gradient-hero); }
   .font-mono { font-family: 'JetBrains Mono', monospace; }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-card { box-shadow: var(--shadow-card); }
 
-  /* Swiss hairline rule */
+  .bg-hero-gradient { background-image: var(--gradient-hero); }
+  .bg-eco-gradient { background-image: var(--gradient-eco); }
+
   .rule-t { border-top: 1px solid hsl(var(--rule)); }
   .rule-b { border-bottom: 1px solid hsl(var(--rule)); }
 
-  /* Index numbering used across the site */
-  .swiss-index {
+  .editorial-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
-  .marquee { animation: marquee 50s linear infinite; }
+  .marquee { animation: marquee 60s linear infinite; }
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  /* Hover underline for links */
   .link-underline {
     background-image: linear-gradient(currentColor, currentColor);
     background-size: 0% 1px;
     background-repeat: no-repeat;
     background-position: 0 100%;
-    transition: background-size 0.4s var(--transition-smooth);
+    transition: background-size 0.5s var(--transition-smooth);
   }
   .link-underline:hover { background-size: 100% 1px; }
+
+  .italic-serif { font-family: 'Fraunces', Georgia, serif; font-style: italic; }
 }
