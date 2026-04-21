@@ -25,7 +25,7 @@ const SiteFooter = () => (
         <Link to="/termos" className="block text-background/70 hover:text-accent transition">Termos & Condições</Link>
       </div>
     </div>
-    <div className="container py-6 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-background/50 editorial-num">
+    <div className="container py-6 pb-24 md:pb-6 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-background/50 editorial-num text-center md:text-left">
       <div>© {new Date().getFullYear()} {COMPANY.legal}. Todos os direitos reservados.</div>
       <div>{COMPANY.postal} · {COMPANY.district}</div>
     </div>
