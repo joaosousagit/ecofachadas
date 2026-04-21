@@ -31,21 +31,50 @@ const faqs = [
 const services = [
   {
     n: "01",
-    title: "Construção residencial",
-    desc: "Moradias unifamiliares e edifícios multifamiliares, do projecto à chave-na-mão.",
+    title: "Construção de edifícios",
+    desc: "Moradias, multifamiliares, comércio e serviços. Do projecto à chave-na-mão.",
     img: residentialImg,
+    href: "/servicos/construcao",
   },
   {
     n: "02",
-    title: "Edifícios não residenciais",
-    desc: "Comércio, serviços e indústria. Soluções construtivas adaptadas ao programa.",
+    title: "Sistema ETICS (Capoto)",
+    desc: "Isolamento térmico exterior certificado. Eficiência energética e conforto.",
     img: commercialImg,
+    href: "/servicos/etics",
   },
   {
     n: "03",
-    title: "Fachadas & revestimentos",
-    desc: "ETICS, fachadas ventiladas, painéis compósitos e sistemas sustentáveis.",
+    title: "Fachadas ventiladas",
+    desc: "Cerâmica, compósito ou metal. Desempenho técnico e expressão arquitectónica.",
     img: sustainableImg,
+    href: "/servicos/fachadas-ventiladas",
+  },
+];
+
+const processo = [
+  { n: "01", title: "Visita técnica", desc: "Deslocamo-nos ao local. Avaliamos condições, ouvimos a sua ideia e levantamos requisitos." },
+  { n: "02", title: "Proposta detalhada", desc: "Em 5 a 10 dias úteis enviamos orçamento com mapa de quantidades, prazos e condições." },
+  { n: "03", title: "Projecto e aprovação", desc: "Validamos especificações, acabamentos e cronograma consigo antes de iniciar." },
+  { n: "04", title: "Execução em obra", desc: "Equipa própria, coordenação técnica e controlo de qualidade durante toda a obra." },
+  { n: "05", title: "Entrega e garantia", desc: "Vistoria final, correcção de pontos e entrega com garantia legal e do sistema." },
+];
+
+const testemunhos = [
+  {
+    quote: "Trabalho impecável na fachada da nossa moradia. Cumpriram o prazo, o orçamento e deixaram tudo limpo. Recomendo sem reservas.",
+    name: "Helena M.",
+    role: "Cliente particular · Oliveira de Frades",
+  },
+  {
+    quote: "Profissionalismo do início ao fim. O capoto ficou perfeito e a casa está visivelmente mais quente no inverno.",
+    name: "João C.",
+    role: "Cliente particular · Vouzela",
+  },
+  {
+    quote: "Contratámos a Ecofachadas para a fachada ventilada do nosso edifício de serviços. Equipa técnica muito competente.",
+    name: "Pedro S.",
+    role: "Gerente · Viseu",
   },
 ];
 
