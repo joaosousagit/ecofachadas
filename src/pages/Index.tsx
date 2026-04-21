@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Phone, Mail, MapPin, Leaf } from "lucide-react";
+import { ArrowUpRight, Phone, Mail, MapPin, Leaf, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO from "@/components/SEO";
