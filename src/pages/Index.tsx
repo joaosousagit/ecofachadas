@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Phone, Mail, MapPin, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/ecofachadas-logo.png";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import SEO from "@/components/SEO";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import { COMPANY } from "@/lib/company";
 import heroImg from "@/assets/eco-hero.jpg";
 import residentialImg from "@/assets/eco-residential.jpg";
 import commercialImg from "@/assets/eco-commercial.jpg";
@@ -15,20 +19,14 @@ const fadeUp = {
   transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 };
 
-// Real company data (Ecofachadas, Lda — Iberinform)
-const COMPANY = {
-  name: "Ecofachadas",
-  legal: "Ecofachadas, Lda",
-  nif: "514 114 347",
-  founded: "2016",
-  cae: "41000 · Construção de Edifícios",
-  address: "Rua Padre João Matos, Edif. 4 Estações, Ala D, R/C Dtº",
-  postal: "3680-135 Oliveira de Frades",
-  district: "Viseu",
-  phone: "+351 232 000 000",
-  phoneHref: "+351232000000",
-  email: "geral@ecofachadas.pt",
-};
+const faqs = [
+  { q: "Em que zonas geográficas trabalham?", a: "Atuamos sobretudo no distrito de Viseu e em toda a região centro de Portugal. Para obras de maior dimensão deslocamo-nos a outros distritos." },
+  { q: "Quanto tempo demora a receber um orçamento?", a: "Após visita ao local ou recepção do projecto, enviamos uma proposta detalhada num prazo médio de 5 a 10 dias úteis." },
+  { q: "Trabalham com particulares e empresas?", a: "Sim. Executamos obras para particulares (moradias, reabilitações), promotores e clientes institucionais." },
+  { q: "Que sistemas de fachada executam?", a: "ETICS (capoto), fachadas ventiladas, painéis compósitos, revestimentos cerâmicos e soluções de isolamento térmico pelo exterior." },
+  { q: "Dão garantia nas obras?", a: "Sim. Cumprimos os prazos legais de garantia previstos no Código Civil e respeitamos as garantias dos sistemas e materiais aplicados." },
+  { q: "Fazem visita técnica antes do orçamento?", a: "Sempre que possível. A visita é gratuita e sem compromisso, e permite-nos apresentar uma proposta rigorosa." },
+];
 
 const services = [
   {
@@ -68,30 +66,12 @@ const stats = [
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-accent/30">
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border">
-        <div className="container flex items-center justify-between h-20">
-          <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="Ecofachadas Lda" className="h-10 w-auto" />
-          </a>
-          <nav className="hidden lg:flex items-center gap-10 text-sm">
-            <a href="#trabalho" className="text-foreground/70 hover:text-foreground transition link-underline">Trabalho</a>
-            <a href="#servicos" className="text-foreground/70 hover:text-foreground transition link-underline">Serviços</a>
-            <a href="#estudio" className="text-foreground/70 hover:text-foreground transition link-underline">Estúdio</a>
-            <a href="#contacto" className="text-foreground/70 hover:text-foreground transition link-underline">Contacto</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href={`tel:${COMPANY.phoneHref}`} className="hidden md:block editorial-num text-foreground/70 hover:text-primary transition">
-              {COMPANY.phone}
-            </a>
-            <Button asChild className="rounded-none h-11 px-5 bg-primary hover:bg-primary/90 text-primary-foreground">
-              <a href="#contacto" className="flex items-center gap-2 editorial-num">
-                Orçamento <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <SEO
+        title="Ecofachadas — Construção e Fachadas em Oliveira de Frades, Viseu"
+        description="Construção de edifícios residenciais e não residenciais e fachadas sustentáveis (ETICS, ventiladas) no distrito de Viseu desde 2016."
+        path="/"
+      />
+      <SiteHeader />
 
       {/* HERO — editorial split */}
       <section id="top" className="relative">
@@ -289,6 +269,37 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="bg-secondary/40 border-y border-border py-24 lg:py-32">
+        <div className="container">
+          <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-16">
+            <div className="lg:col-span-3 editorial-num text-muted-foreground">(04) — FAQ</div>
+            <div className="lg:col-span-9">
+              <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
+                Perguntas <span className="italic-serif text-accent">frequentes</span>.
+              </h2>
+            </div>
+          </motion.div>
+          <motion.div {...fadeUp} className="max-w-4xl">
+            <Accordion type="single" collapsible className="rule-t">
+              {faqs.map((f, i) => (
+                <AccordionItem key={i} value={`f-${i}`} className="rule-b border-0 px-1">
+                  <AccordionTrigger className="font-display text-xl md:text-2xl py-6 text-left hover:no-underline">
+                    <span className="flex items-baseline gap-4">
+                      <span className="editorial-num text-accent text-sm">{String(i + 1).padStart(2, "0")}</span>
+                      {f.q}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-foreground/70 text-lg leading-relaxed pl-12 pr-4 pb-6">
+                    {f.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CONTACTO — inverted dark editorial */}
       <section id="contacto" className="bg-foreground text-background">
         <div className="container py-24 lg:py-32">
@@ -376,18 +387,22 @@ const Index = () => {
             </motion.form>
           </div>
         </div>
-
-        {/* FOOTER */}
-        <footer className="border-t border-background/15">
-          <div className="container py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
-            <div className="flex items-center gap-3 editorial-num">
-              <Leaf className="w-4 h-4 text-accent" />
-              © {new Date().getFullYear()} {COMPANY.legal} · NIF {COMPANY.nif}
-            </div>
-            <div className="editorial-num">{COMPANY.postal} · {COMPANY.district}</div>
-          </div>
-        </footer>
       </section>
+
+      {/* MAPA */}
+      <section aria-label="Localização" className="border-t border-border">
+        <div className="aspect-[16/8] md:aspect-[21/7] w-full bg-muted">
+          <iframe
+            title="Localização Ecofachadas em Oliveira de Frades"
+            src="https://www.google.com/maps?q=Rua+Padre+Jo%C3%A3o+Matos+Oliveira+de+Frades&output=embed"
+            loading="lazy"
+            className="w-full h-full border-0"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </section>
+
+      <SiteFooter />
     </div>
   );
 };

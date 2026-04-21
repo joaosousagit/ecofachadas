@@ -1,0 +1,18 @@
+export const COMPANY = {
+  name: "Ecofachadas",
+  legal: "Ecofachadas, Lda",
+  nif: "514 114 347",
+  founded: "2016",
+  cae: "41000 · Construção de Edifícios",
+  address: "Rua Padre João Matos, Edif. 4 Estações, Ala D, R/C Dtº",
+  postal: "3680-135 Oliveira de Frades",
+  district: "Viseu",
+  country: "Portugal",
+  phone: "+351 232 763 140",
+  phoneHref: "+351232763140",
+  whatsappHref: "351232763140",
+  email: "ecofachadas@hotmail.com",
+  hours: "Seg–Sex 09:00–18:00",
+  url: "https://www.ecofachadas.pt",
+  geo: { lat: 40.7280, lng: -8.1750 },
+};
