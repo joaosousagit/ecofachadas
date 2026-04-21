@@ -387,8 +387,6 @@ const Index = () => {
             </motion.form>
           </div>
         </div>
-
-        </div>
       </section>
 
       {/* MAPA */}
