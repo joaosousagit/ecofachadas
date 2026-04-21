@@ -8,6 +8,9 @@ import NotFound from "./pages/NotFound.tsx";
 import Projetos from "./pages/Projetos.tsx";
 import Privacidade from "./pages/Privacidade.tsx";
 import Termos from "./pages/Termos.tsx";
+import Etics from "./pages/servicos/Etics.tsx";
+import FachadasVentiladas from "./pages/servicos/FachadasVentiladas.tsx";
+import Construcao from "./pages/servicos/Construcao.tsx";
 import WhatsAppButton from "./components/WhatsAppButton.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
@@ -22,6 +25,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/projetos" element={<Projetos />} />
+          <Route path="/servicos/etics" element={<Etics />} />
+          <Route path="/servicos/fachadas-ventiladas" element={<FachadasVentiladas />} />
+          <Route path="/servicos/construcao" element={<Construcao />} />
           <Route path="/privacidade" element={<Privacidade />} />
           <Route path="/termos" element={<Termos />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
