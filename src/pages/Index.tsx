@@ -249,9 +249,9 @@ const Index = () => {
                   <div className="editorial-num text-accent mb-6">{s.n} / 03</div>
                   <h3 className="font-display text-4xl md:text-5xl tracking-tight mb-6">{s.title}</h3>
                   <p className="text-lg text-foreground/70 leading-relaxed max-w-md">{s.desc}</p>
-                  <a href="#contacto" className="mt-8 inline-flex items-center gap-2 editorial-num link-underline">
-                    Falar sobre este serviço <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                  <Link to={s.href} className="mt-8 inline-flex items-center gap-2 editorial-num link-underline">
+                    Saber mais sobre este serviço <ArrowUpRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </motion.div>
             ))}
