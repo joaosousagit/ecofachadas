@@ -12,13 +12,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Space Grotesk"', "Inter", "sans-serif"],
+        display: ['Fraunces', "Georgia", "serif"],
         sans: ['Inter', "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "monospace"],
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
-        'gradient-mesh': 'var(--gradient-mesh)',
+        'gradient-eco': 'var(--gradient-eco)',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -48,6 +48,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          soft: "hsl(var(--accent-soft))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
