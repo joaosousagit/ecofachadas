@@ -7,9 +7,9 @@ import { COMPANY } from "@/lib/company";
 const SiteHeader = () => {
   return (
     <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-xl border-b border-border">
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-28">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Ecofachadas Lda" className="h-10 w-auto" />
+          <img src={logo} alt="Ecofachadas Lda" className="h-20 w-auto" />
         </Link>
         <nav className="hidden lg:flex items-center gap-10 text-sm">
           <Link to="/#trabalho" className="text-foreground/70 hover:text-foreground transition link-underline">Trabalho</Link>
