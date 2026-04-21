@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Phone, Mail, MapPin, Leaf } from "lucide-react";
+import { ArrowUpRight, Phone, Mail, MapPin, Leaf, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO from "@/components/SEO";
@@ -31,21 +32,50 @@ const faqs = [
 const services = [
   {
     n: "01",
-    title: "Construção residencial",
-    desc: "Moradias unifamiliares e edifícios multifamiliares, do projecto à chave-na-mão.",
+    title: "Construção de edifícios",
+    desc: "Moradias, multifamiliares, comércio e serviços. Do projecto à chave-na-mão.",
     img: residentialImg,
+    href: "/servicos/construcao",
   },
   {
     n: "02",
-    title: "Edifícios não residenciais",
-    desc: "Comércio, serviços e indústria. Soluções construtivas adaptadas ao programa.",
+    title: "Sistema ETICS (Capoto)",
+    desc: "Isolamento térmico exterior certificado. Eficiência energética e conforto.",
     img: commercialImg,
+    href: "/servicos/etics",
   },
   {
     n: "03",
-    title: "Fachadas & revestimentos",
-    desc: "ETICS, fachadas ventiladas, painéis compósitos e sistemas sustentáveis.",
+    title: "Fachadas ventiladas",
+    desc: "Cerâmica, compósito ou metal. Desempenho técnico e expressão arquitectónica.",
     img: sustainableImg,
+    href: "/servicos/fachadas-ventiladas",
+  },
+];
+
+const processo = [
+  { n: "01", title: "Visita técnica", desc: "Deslocamo-nos ao local. Avaliamos condições, ouvimos a sua ideia e levantamos requisitos." },
+  { n: "02", title: "Proposta detalhada", desc: "Em 5 a 10 dias úteis enviamos orçamento com mapa de quantidades, prazos e condições." },
+  { n: "03", title: "Projecto e aprovação", desc: "Validamos especificações, acabamentos e cronograma consigo antes de iniciar." },
+  { n: "04", title: "Execução em obra", desc: "Equipa própria, coordenação técnica e controlo de qualidade durante toda a obra." },
+  { n: "05", title: "Entrega e garantia", desc: "Vistoria final, correcção de pontos e entrega com garantia legal e do sistema." },
+];
+
+const testemunhos = [
+  {
+    quote: "Trabalho impecável na fachada da nossa moradia. Cumpriram o prazo, o orçamento e deixaram tudo limpo. Recomendo sem reservas.",
+    name: "Helena M.",
+    role: "Cliente particular · Oliveira de Frades",
+  },
+  {
+    quote: "Profissionalismo do início ao fim. O capoto ficou perfeito e a casa está visivelmente mais quente no inverno.",
+    name: "João C.",
+    role: "Cliente particular · Vouzela",
+  },
+  {
+    quote: "Contratámos a Ecofachadas para a fachada ventilada do nosso edifício de serviços. Equipa técnica muito competente.",
+    name: "Pedro S.",
+    role: "Gerente · Viseu",
   },
 ];
 
@@ -219,9 +249,9 @@ const Index = () => {
                   <div className="editorial-num text-accent mb-6">{s.n} / 03</div>
                   <h3 className="font-display text-4xl md:text-5xl tracking-tight mb-6">{s.title}</h3>
                   <p className="text-lg text-foreground/70 leading-relaxed max-w-md">{s.desc}</p>
-                  <a href="#contacto" className="mt-8 inline-flex items-center gap-2 editorial-num link-underline">
-                    Falar sobre este serviço <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                  <Link to={s.href} className="mt-8 inline-flex items-center gap-2 editorial-num link-underline">
+                    Saber mais sobre este serviço <ArrowUpRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -269,11 +299,84 @@ const Index = () => {
         </div>
       </section>
 
+      {/* PROCESSO */}
+      <section id="processo" className="container py-24 lg:py-32">
+        <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-20">
+          <div className="lg:col-span-3 editorial-num text-muted-foreground">(04) — Processo</div>
+          <div className="lg:col-span-9">
+            <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
+              Cinco passos da <span className="italic-serif text-accent">ideia</span> à entrega.
+            </h2>
+          </div>
+        </motion.div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {processo.map((p, i) => (
+            <motion.div
+              key={p.n}
+              {...fadeUp}
+              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+              className="rule-t pt-6"
+            >
+              <div className="editorial-num text-accent mb-3">{p.n}</div>
+              <h3 className="font-display text-2xl mb-3 tracking-tight">{p.title}</h3>
+              <p className="text-foreground/70 leading-relaxed text-sm">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* TESTEMUNHOS */}
+      <section id="testemunhos" className="bg-secondary/40 border-y border-border py-24 lg:py-32">
+        <div className="container">
+          <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-16">
+            <div className="lg:col-span-3 editorial-num text-muted-foreground">(05) — Testemunhos</div>
+            <div className="lg:col-span-9">
+              <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
+                O que dizem <span className="italic-serif text-accent">os nossos clientes</span>.
+              </h2>
+            </div>
+          </motion.div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testemunhos.map((t, i) => (
+              <motion.figure
+                key={t.name}
+                {...fadeUp}
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+                className="bg-background p-8 border border-border flex flex-col gap-6"
+              >
+                <Quote className="w-8 h-8 text-accent" />
+                <blockquote className="font-display text-xl leading-snug text-foreground/90">
+                  "{t.quote}"
+                </blockquote>
+                <figcaption className="rule-t pt-4 mt-auto">
+                  <div className="font-display text-lg">{t.name}</div>
+                  <div className="editorial-num text-muted-foreground mt-1">{t.role}</div>
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PARCEIROS / SISTEMAS */}
+      <section aria-label="Sistemas e parceiros" className="container py-16 border-b border-border">
+        <div className="editorial-num text-muted-foreground text-center mb-8">
+          Sistemas certificados que aplicamos
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
+          {["Weber", "Cinca", "Sto", "Knauf", "Sika"].map((p) => (
+            <div key={p} className="text-center font-display text-2xl md:text-3xl text-muted-foreground hover:text-foreground transition-colors py-4">
+              {p}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="bg-secondary/40 border-y border-border py-24 lg:py-32">
         <div className="container">
           <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-16">
-            <div className="lg:col-span-3 editorial-num text-muted-foreground">(04) — FAQ</div>
+            <div className="lg:col-span-3 editorial-num text-muted-foreground">(06) — FAQ</div>
             <div className="lg:col-span-9">
               <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
                 Perguntas <span className="italic-serif text-accent">frequentes</span>.
@@ -305,7 +408,7 @@ const Index = () => {
         <div className="container py-24 lg:py-32">
           <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-16">
             <div className="lg:col-span-3 editorial-num text-background/60">
-              (04) — Contacto
+              (07) — Contacto
             </div>
             <div className="lg:col-span-9">
               <h2 className="font-display text-5xl md:text-8xl tracking-tight text-balance">
