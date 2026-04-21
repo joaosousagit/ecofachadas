@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Phone, Mail, MapPin, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/ecofachadas-logo.png";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import SEO from "@/components/SEO";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import { COMPANY } from "@/lib/company";
 import heroImg from "@/assets/eco-hero.jpg";
 import residentialImg from "@/assets/eco-residential.jpg";
 import commercialImg from "@/assets/eco-commercial.jpg";
@@ -15,20 +19,14 @@ const fadeUp = {
   transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 };
 
-// Real company data (Ecofachadas, Lda — Iberinform)
-const COMPANY = {
-  name: "Ecofachadas",
-  legal: "Ecofachadas, Lda",
-  nif: "514 114 347",
-  founded: "2016",
-  cae: "41000 · Construção de Edifícios",
-  address: "Rua Padre João Matos, Edif. 4 Estações, Ala D, R/C Dtº",
-  postal: "3680-135 Oliveira de Frades",
-  district: "Viseu",
-  phone: "+351 232 000 000",
-  phoneHref: "+351232000000",
-  email: "geral@ecofachadas.pt",
-};
+const faqs = [
+  { q: "Em que zonas geográficas trabalham?", a: "Atuamos sobretudo no distrito de Viseu e em toda a região centro de Portugal. Para obras de maior dimensão deslocamo-nos a outros distritos." },
+  { q: "Quanto tempo demora a receber um orçamento?", a: "Após visita ao local ou recepção do projecto, enviamos uma proposta detalhada num prazo médio de 5 a 10 dias úteis." },
+  { q: "Trabalham com particulares e empresas?", a: "Sim. Executamos obras para particulares (moradias, reabilitações), promotores e clientes institucionais." },
+  { q: "Que sistemas de fachada executam?", a: "ETICS (capoto), fachadas ventiladas, painéis compósitos, revestimentos cerâmicos e soluções de isolamento térmico pelo exterior." },
+  { q: "Dão garantia nas obras?", a: "Sim. Cumprimos os prazos legais de garantia previstos no Código Civil e respeitamos as garantias dos sistemas e materiais aplicados." },
+  { q: "Fazem visita técnica antes do orçamento?", a: "Sempre que possível. A visita é gratuita e sem compromisso, e permite-nos apresentar uma proposta rigorosa." },
+];
 
 const services = [
   {
