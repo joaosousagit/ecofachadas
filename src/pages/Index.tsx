@@ -58,9 +58,9 @@ const projects = [
 
 const stats = [
   { k: "2016", v: "Fundada" },
-  { k: "6—10", v: "Colaboradores" },
+  { k: "9", v: "Anos de atividade" },
   { k: "Micro", v: "Dimensão" },
-  { k: "↑", v: "Volume crescente" },
+  { k: "€750", v: "Capital social" },
 ];
 
 const Index = () => {
