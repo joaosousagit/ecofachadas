@@ -388,17 +388,23 @@ const Index = () => {
           </div>
         </div>
 
-        {/* FOOTER */}
-        <footer className="border-t border-background/15">
-          <div className="container py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
-            <div className="flex items-center gap-3 editorial-num">
-              <Leaf className="w-4 h-4 text-accent" />
-              © {new Date().getFullYear()} {COMPANY.legal} · NIF {COMPANY.nif}
-            </div>
-            <div className="editorial-num">{COMPANY.postal} · {COMPANY.district}</div>
-          </div>
-        </footer>
+        </div>
       </section>
+
+      {/* MAPA */}
+      <section aria-label="Localização" className="border-t border-border">
+        <div className="aspect-[16/8] md:aspect-[21/7] w-full bg-muted">
+          <iframe
+            title="Localização Ecofachadas em Oliveira de Frades"
+            src="https://www.google.com/maps?q=Rua+Padre+Jo%C3%A3o+Matos+Oliveira+de+Frades&output=embed"
+            loading="lazy"
+            className="w-full h-full border-0"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </section>
+
+      <SiteFooter />
     </div>
   );
 };
