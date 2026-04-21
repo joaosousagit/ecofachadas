@@ -299,11 +299,84 @@ const Index = () => {
         </div>
       </section>
 
+      {/* PROCESSO */}
+      <section id="processo" className="container py-24 lg:py-32">
+        <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-20">
+          <div className="lg:col-span-3 editorial-num text-muted-foreground">(04) — Processo</div>
+          <div className="lg:col-span-9">
+            <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
+              Cinco passos da <span className="italic-serif text-accent">ideia</span> à entrega.
+            </h2>
+          </div>
+        </motion.div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {processo.map((p, i) => (
+            <motion.div
+              key={p.n}
+              {...fadeUp}
+              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+              className="rule-t pt-6"
+            >
+              <div className="editorial-num text-accent mb-3">{p.n}</div>
+              <h3 className="font-display text-2xl mb-3 tracking-tight">{p.title}</h3>
+              <p className="text-foreground/70 leading-relaxed text-sm">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* TESTEMUNHOS */}
+      <section id="testemunhos" className="bg-secondary/40 border-y border-border py-24 lg:py-32">
+        <div className="container">
+          <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-16">
+            <div className="lg:col-span-3 editorial-num text-muted-foreground">(05) — Testemunhos</div>
+            <div className="lg:col-span-9">
+              <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
+                O que dizem <span className="italic-serif text-accent">os nossos clientes</span>.
+              </h2>
+            </div>
+          </motion.div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testemunhos.map((t, i) => (
+              <motion.figure
+                key={t.name}
+                {...fadeUp}
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+                className="bg-background p-8 border border-border flex flex-col gap-6"
+              >
+                <Quote className="w-8 h-8 text-accent" />
+                <blockquote className="font-display text-xl leading-snug text-foreground/90">
+                  "{t.quote}"
+                </blockquote>
+                <figcaption className="rule-t pt-4 mt-auto">
+                  <div className="font-display text-lg">{t.name}</div>
+                  <div className="editorial-num text-muted-foreground mt-1">{t.role}</div>
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PARCEIROS / SISTEMAS */}
+      <section aria-label="Sistemas e parceiros" className="container py-16 border-b border-border">
+        <div className="editorial-num text-muted-foreground text-center mb-8">
+          Sistemas certificados que aplicamos
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
+          {["Weber", "Cinca", "Sto", "Knauf", "Sika"].map((p) => (
+            <div key={p} className="text-center font-display text-2xl md:text-3xl text-muted-foreground hover:text-foreground transition-colors py-4">
+              {p}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="bg-secondary/40 border-y border-border py-24 lg:py-32">
         <div className="container">
           <motion.div {...fadeUp} className="grid lg:grid-cols-12 gap-8 mb-16">
-            <div className="lg:col-span-3 editorial-num text-muted-foreground">(04) — FAQ</div>
+            <div className="lg:col-span-3 editorial-num text-muted-foreground">(06) — FAQ</div>
             <div className="lg:col-span-9">
               <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
                 Perguntas <span className="italic-serif text-accent">frequentes</span>.
