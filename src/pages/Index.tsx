@@ -318,20 +318,20 @@ const Index = () => {
             <motion.div {...fadeUp} className="lg:col-span-5 space-y-10">
               <a href={`tel:${COMPANY.phoneHref}`} className="block group">
                 <div className="editorial-num text-background/50 mb-2">Telefone</div>
-                <div className="font-display text-3xl md:text-4xl group-hover:text-accent transition-colors flex items-center gap-3">
+                <div className="font-sans font-light tracking-tight text-2xl md:text-3xl group-hover:text-accent transition-colors flex items-center gap-3">
                   <Phone className="w-6 h-6" /> {COMPANY.phone}
                 </div>
               </a>
               <a href={`mailto:${COMPANY.email}`} className="block group">
                 <div className="editorial-num text-background/50 mb-2">Email</div>
-                <div className="font-display text-3xl md:text-4xl group-hover:text-accent transition-colors flex items-center gap-3 break-all">
+                <div className="font-sans font-light tracking-tight text-2xl md:text-3xl group-hover:text-accent transition-colors flex items-center gap-3 break-all">
                   <Mail className="w-6 h-6 shrink-0" /> {COMPANY.email}
                 </div>
               </a>
               <div>
                 <div className="editorial-num text-background/50 mb-2">Sede</div>
-                <div className="font-display text-2xl md:text-3xl flex items-start gap-3 text-background/90">
-                  <MapPin className="w-6 h-6 mt-2 shrink-0 text-accent" />
+                <div className="font-sans font-light tracking-tight text-xl md:text-2xl flex items-start gap-3 text-background/90 leading-relaxed">
+                  <MapPin className="w-6 h-6 mt-1 shrink-0 text-accent" />
                   <span>
                     {COMPANY.address}<br />
                     {COMPANY.postal}<br />
