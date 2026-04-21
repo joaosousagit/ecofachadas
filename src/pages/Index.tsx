@@ -66,30 +66,12 @@ const stats = [
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-accent/30">
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border">
-        <div className="container flex items-center justify-between h-20">
-          <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="Ecofachadas Lda" className="h-10 w-auto" />
-          </a>
-          <nav className="hidden lg:flex items-center gap-10 text-sm">
-            <a href="#trabalho" className="text-foreground/70 hover:text-foreground transition link-underline">Trabalho</a>
-            <a href="#servicos" className="text-foreground/70 hover:text-foreground transition link-underline">Serviços</a>
-            <a href="#estudio" className="text-foreground/70 hover:text-foreground transition link-underline">Estúdio</a>
-            <a href="#contacto" className="text-foreground/70 hover:text-foreground transition link-underline">Contacto</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href={`tel:${COMPANY.phoneHref}`} className="hidden md:block editorial-num text-foreground/70 hover:text-primary transition">
-              {COMPANY.phone}
-            </a>
-            <Button asChild className="rounded-none h-11 px-5 bg-primary hover:bg-primary/90 text-primary-foreground">
-              <a href="#contacto" className="flex items-center gap-2 editorial-num">
-                Orçamento <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <SEO
+        title="Ecofachadas — Construção e Fachadas em Oliveira de Frades, Viseu"
+        description="Construção de edifícios residenciais e não residenciais e fachadas sustentáveis (ETICS, ventiladas) no distrito de Viseu desde 2016."
+        path="/"
+      />
+      <SiteHeader />
 
       {/* HERO — editorial split */}
       <section id="top" className="relative">
