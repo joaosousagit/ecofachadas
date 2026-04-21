@@ -69,40 +69,48 @@ const SiteHeader = () => {
                 <Menu className="w-5 h-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full sm:max-w-md bg-background border-l border-border p-0">
-              <div className="flex items-center justify-between h-20 px-6 border-b border-border">
+            <SheetContent side="right" className="w-full sm:max-w-md bg-background border-l border-border p-0 flex flex-col [&>button]:hidden">
+              <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
+              <SheetDescription className="sr-only">Navegue pelas secções do site Ecofachadas</SheetDescription>
+              <div className="flex items-center justify-between h-20 px-6 border-b border-border shrink-0">
                 <img src={logo} alt="Ecofachadas Lda" className="h-12 w-auto" />
-                <SheetClose className="inline-flex items-center justify-center w-11 h-11 hover:bg-muted transition">
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Fechar menu"
+                  className="inline-flex items-center justify-center w-11 h-11 hover:bg-muted transition border border-border"
+                >
                   <X className="w-5 h-5" />
-                </SheetClose>
+                </button>
               </div>
-              <nav className="flex flex-col px-6 py-8">
-                {anchors.slice(0, 1).map((a) => (
-                  <a key={a.hash} href={`/#${a.hash}`} onClick={(e) => handleAnchor(e, a.hash)} className="font-display text-3xl py-4 border-b border-border hover:text-accent transition cursor-pointer">
-                    {a.label}
+              <div className="flex-1 overflow-y-auto">
+                <nav className="flex flex-col px-6 py-6">
+                  {anchors.slice(0, 1).map((a) => (
+                    <a key={a.hash} href={`/#${a.hash}`} onClick={(e) => handleAnchor(e, a.hash)} className="font-display text-3xl py-4 border-b border-border hover:text-accent transition cursor-pointer">
+                      {a.label}
+                    </a>
+                  ))}
+                  <Link to="/projetos" onClick={() => setOpen(false)} className="font-display text-3xl py-4 border-b border-border hover:text-accent transition">
+                    Projetos
+                  </Link>
+                  {anchors.slice(1).map((a) => (
+                    <a key={a.hash} href={`/#${a.hash}`} onClick={(e) => handleAnchor(e, a.hash)} className="font-display text-3xl py-4 border-b border-border hover:text-accent transition cursor-pointer">
+                      {a.label}
+                    </a>
+                  ))}
+                </nav>
+                <div className="px-6 pb-8 pt-2 space-y-4">
+                  <a href={`tel:${COMPANY.phoneHref}`} className="block editorial-num text-foreground/70 hover:text-accent transition">
+                    {COMPANY.phone}
                   </a>
-                ))}
-                <Link to="/projetos" onClick={() => setOpen(false)} className="font-display text-3xl py-4 border-b border-border hover:text-accent transition">
-                  Projetos
-                </Link>
-                {anchors.slice(1).map((a) => (
-                  <a key={a.hash} href={`/#${a.hash}`} onClick={(e) => handleAnchor(e, a.hash)} className="font-display text-3xl py-4 border-b border-border hover:text-accent transition cursor-pointer">
-                    {a.label}
+                  <a href={`mailto:${COMPANY.email}`} className="block editorial-num text-foreground/70 hover:text-accent transition break-all">
+                    {COMPANY.email}
                   </a>
-                ))}
-              </nav>
-              <div className="px-6 mt-4 space-y-4">
-                <a href={`tel:${COMPANY.phoneHref}`} className="block editorial-num text-foreground/70 hover:text-accent transition">
-                  {COMPANY.phone}
-                </a>
-                <a href={`mailto:${COMPANY.email}`} className="block editorial-num text-foreground/70 hover:text-accent transition break-all">
-                  {COMPANY.email}
-                </a>
-                <Button asChild className="w-full rounded-none h-12 bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <a href="/#contacto" onClick={(e) => handleAnchor(e, "contacto")} className="flex items-center justify-center gap-2 editorial-num">
-                    Pedir orçamento <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </Button>
+                  <Button asChild className="w-full rounded-none h-12 bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <a href="/#contacto" onClick={(e) => handleAnchor(e, "contacto")} className="flex items-center justify-center gap-2 editorial-num">
+                      Pedir orçamento <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
