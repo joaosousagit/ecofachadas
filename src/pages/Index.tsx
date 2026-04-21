@@ -245,10 +245,10 @@ const Index = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-8 text-foreground/70 text-lg leading-relaxed">
               <p>
-                A {COMPANY.legal} foi constituída em 2016 e dedica-se à construção de edifícios residenciais e não residenciais (CAE 41000), com especial atenção ao envelope construtivo: fachadas, isolamento e revestimentos.
+                A {COMPANY.legal} foi constituída em {COMPANY.foundedDate} e dedica-se à construção de edifícios residenciais e não residenciais (CAE 41000), com especial atenção ao envelope construtivo: fachadas, isolamento e revestimentos.
               </p>
               <p>
-                Estamos sediados no Edifício 4 Estações, em Oliveira de Frades, e operamos sobretudo no distrito de Viseu e região centro. Combinamos métodos tradicionais com soluções técnicas contemporâneas.
+                Com capital social de {COMPANY.capitalSocial} e {COMPANY.yearsActive} anos de atividade, estamos sediados no Edifício 4 Estações, em Oliveira de Frades. Operamos sobretudo no distrito de Viseu e região centro, combinando métodos tradicionais com soluções técnicas contemporâneas.
               </p>
             </div>
 
