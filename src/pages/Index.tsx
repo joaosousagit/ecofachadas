@@ -513,9 +513,10 @@ const Index = () => {
               </div>
               <Button
                 type="submit"
+                disabled={submitting}
                 className="mt-10 rounded-none h-16 px-10 bg-accent text-accent-foreground hover:bg-accent/90 text-base"
               >
-                <span className="editorial-num flex items-center gap-3">Enviar pedido <ArrowUpRight className="w-5 h-5" /></span>
+                <span className="editorial-num flex items-center gap-3">{submitting ? "A enviar…" : "Enviar pedido"} <ArrowUpRight className="w-5 h-5" /></span>
               </Button>
             </motion.form>
           </div>
