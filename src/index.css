@@ -5,7 +5,7 @@
 /* Ecofachadas — Editorial Architectural design system. All colors HSL.
    Palette derived from logo: vivid green + deep blue + neutral grays */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
@@ -94,11 +94,10 @@
     text-rendering: optimizeLegibility;
   }
   h1, h2, h3, h4, h5, .font-display {
-    font-family: 'Fraunces', Georgia, serif;
-    font-variation-settings: "opsz" 144;
-    letter-spacing: -0.025em;
-    line-height: 0.95;
-    font-weight: 500;
+    font-family: 'Instrument Serif', Georgia, serif;
+    letter-spacing: -0.015em;
+    line-height: 1.0;
+    font-weight: 400;
   }
   .font-mono { font-family: 'JetBrains Mono', monospace; }
 }
@@ -136,5 +135,5 @@
   }
   .link-underline:hover { background-size: 100% 1px; }
 
-  .italic-serif { font-family: 'Fraunces', Georgia, serif; font-style: italic; }
+  .italic-serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; }
 }
