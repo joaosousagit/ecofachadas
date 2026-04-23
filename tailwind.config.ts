@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Fraunces', "Georgia", "serif"],
+        display: ['"Instrument Serif"', "Georgia", "serif"],
         sans: ['Inter', "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "monospace"],
       },
