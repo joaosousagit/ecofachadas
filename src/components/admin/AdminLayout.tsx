@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { LayoutDashboard, FolderKanban, Inbox, LogOut, ExternalLink } from "lucide-react";
+import { LayoutDashboard, FolderKanban, Inbox, LogOut, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/ecofachadas-logo.png";
@@ -26,6 +27,14 @@ const AdminLayout = ({ children }: { children?: ReactNode }) => {
         <div className="h-20 px-6 flex items-center border-b border-border">
           <img src={logo} alt="Ecofachadas" className="h-10 w-auto" />
         </div>
+        <div className="p-4 border-b border-border">
+          <Link
+            to="/"
+            className="flex items-center gap-2 px-3 py-2.5 text-sm text-foreground/70 hover:text-foreground hover:bg-muted transition border border-border"
+          >
+            <ArrowLeft className="w-4 h-4" /> Voltar ao site
+          </Link>
+        </div>
         <nav className="flex-1 p-4 space-y-1">
           {navItems.map((item) => (
             <NavLink
@@ -46,14 +55,6 @@ const AdminLayout = ({ children }: { children?: ReactNode }) => {
           ))}
         </nav>
         <div className="p-4 border-t border-border space-y-2">
-          <a
-            href="/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition px-3 py-2"
-          >
-            <ExternalLink className="w-3.5 h-3.5" /> Ver site
-          </a>
           <div className="px-3 py-2 text-xs text-muted-foreground truncate" title={user?.email ?? ""}>
             {user?.email}
           </div>
