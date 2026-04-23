@@ -97,6 +97,38 @@ const stats = [
 ];
 
 const Index = () => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleContact = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const name = String(fd.get("nome") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const phone = String(fd.get("telefone") ?? "").trim();
+    const message = String(fd.get("mensagem") ?? "").trim();
+
+    if (!name || !message) {
+      toast({ title: "Preencha nome e mensagem", variant: "destructive" });
+      return;
+    }
+    setSubmitting(true);
+    const { error } = await supabase.from("leads").insert({
+      name: name.slice(0, 200),
+      email: email ? email.slice(0, 320) : null,
+      phone: phone ? phone.slice(0, 50) : null,
+      message: message.slice(0, 5000),
+      source: "website",
+    });
+    setSubmitting(false);
+    if (error) {
+      toast({ title: "Erro a enviar", description: error.message, variant: "destructive" });
+      return;
+    }
+    toast({ title: "Pedido enviado", description: "Entraremos em contacto brevemente." });
+    form.reset();
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-accent/30">
       <SEO
@@ -451,12 +483,7 @@ const Index = () => {
               {...fadeUp}
               transition={{ duration: 0.9, delay: 0.15 }}
               className="lg:col-span-7 space-y-1"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const body = `Nome: ${fd.get("nome")}%0D%0ATelefone: ${fd.get("telefone")}%0D%0AMensagem: ${fd.get("mensagem")}`;
-                window.location.href = `mailto:${COMPANY.email}?subject=Pedido de Orçamento — Site&body=${body}`;
-              }}
+              onSubmit={handleContact}
             >
               {[
                 { name: "nome", label: "Nome", type: "text", required: true },
