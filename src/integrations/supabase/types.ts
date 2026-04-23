@@ -14,16 +14,134 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          internal_notes: string | null
+          message: string
+          name: string
+          phone: string | null
+          source: string | null
+          status: Database["public"]["Enums"]["lead_status"]
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          internal_notes?: string | null
+          message: string
+          name: string
+          phone?: string | null
+          source?: string | null
+          status?: Database["public"]["Enums"]["lead_status"]
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          internal_notes?: string | null
+          message?: string
+          name?: string
+          phone?: string | null
+          source?: string | null
+          status?: Database["public"]["Enums"]["lead_status"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          category: Database["public"]["Enums"]["project_category"]
+          cover_url: string | null
+          created_at: string
+          description: string | null
+          featured: boolean
+          gallery: Json
+          id: string
+          location: string | null
+          published: boolean
+          slug: string
+          sort_order: number
+          title: string
+          updated_at: string
+          year: number | null
+        }
+        Insert: {
+          category: Database["public"]["Enums"]["project_category"]
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          featured?: boolean
+          gallery?: Json
+          id?: string
+          location?: string | null
+          published?: boolean
+          slug: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+          year?: number | null
+        }
+        Update: {
+          category?: Database["public"]["Enums"]["project_category"]
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          featured?: boolean
+          gallery?: Json
+          id?: string
+          location?: string | null
+          published?: boolean
+          slug?: string
+          sort_order?: number
+          title?: string
+          updated_at?: string
+          year?: number | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      lead_status: "novo" | "contactado" | "ganho" | "perdido"
+      project_category: "etics" | "fachadas-ventiladas" | "construcao"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +268,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      lead_status: ["novo", "contactado", "ganho", "perdido"],
+      project_category: ["etics", "fachadas-ventiladas", "construcao"],
+    },
   },
 } as const
