@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Phone, Mail, MapPin, Leaf, Quote } from "lucide-react";
@@ -7,6 +8,8 @@ import SEO from "@/components/SEO";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { COMPANY } from "@/lib/company";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 import heroImg from "@/assets/eco-hero.jpg";
 import residentialImg from "@/assets/eco-residential.jpg";
 import commercialImg from "@/assets/eco-commercial.jpg";
