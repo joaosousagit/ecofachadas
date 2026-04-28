@@ -456,14 +456,14 @@ const Index = () => {
             <motion.div {...fadeUp} className="lg:col-span-5 space-y-10">
               <a href={`tel:${COMPANY.phoneHref}`} className="block group">
                 <div className="editorial-num text-background/50 mb-2">Telefone</div>
-                <div className="font-sans font-light tracking-tight text-2xl md:text-3xl group-hover:text-accent transition-colors flex items-center gap-3">
-                  <Phone className="w-6 h-6" /> {COMPANY.phone}
+                <div className="font-sans font-light tracking-tight text-xl sm:text-2xl md:text-3xl group-hover:text-accent transition-colors flex items-center gap-3">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" /> <span className="break-all">{COMPANY.phone}</span>
                 </div>
               </a>
               <a href={`mailto:${COMPANY.email}`} className="block group">
                 <div className="editorial-num text-background/50 mb-2">Email</div>
-                <div className="font-sans font-light tracking-tight text-2xl md:text-3xl group-hover:text-accent transition-colors flex items-center gap-3 break-all">
-                  <Mail className="w-6 h-6 shrink-0" /> {COMPANY.email}
+                <div className="font-sans font-light tracking-tight text-lg sm:text-2xl md:text-3xl group-hover:text-accent transition-colors flex items-center gap-3">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" /> <span className="break-all min-w-0">{COMPANY.email}</span>
                 </div>
               </a>
               <div>
