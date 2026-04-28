@@ -13,6 +13,7 @@ import Etics from "./pages/servicos/Etics.tsx";
 import FachadasVentiladas from "./pages/servicos/FachadasVentiladas.tsx";
 import Construcao from "./pages/servicos/Construcao.tsx";
 import WhatsAppButton from "./components/WhatsAppButton.tsx";
+import BackToTop from "./components/BackToTop.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 import Login from "./pages/admin/Login.tsx";
 import Dashboard from "./pages/admin/Dashboard.tsx";
@@ -29,6 +30,7 @@ const PublicChrome = () => {
   return (
     <>
       <WhatsAppButton />
+      <BackToTop />
       <CookieBanner />
     </>
   );
