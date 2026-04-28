@@ -103,7 +103,7 @@ const Leads = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-4xl mb-1">Pedidos de orçamento</h1>
+        <h1 className="font-display text-3xl sm:text-4xl mb-1">Pedidos de orçamento</h1>
         <p className="text-sm text-muted-foreground">Contactos recebidos pelo formulário do site.</p>
       </div>
 
@@ -131,19 +131,19 @@ const Leads = () => {
           <ul className="divide-y divide-border">
             {filtered.map((l) => (
               <li key={l.id}>
-                <button onClick={() => openLead(l)} className="w-full text-left p-5 hover:bg-muted/40 transition flex items-start gap-4">
+                <button onClick={() => openLead(l)} className="w-full text-left p-4 sm:p-5 hover:bg-muted/40 transition flex items-start gap-3 sm:gap-4">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className="font-medium">{l.name}</span>
+                      <span className="font-medium truncate">{l.name}</span>
                       <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 ${statusColors[l.status]}`}>{statusLabels[l.status]}</span>
                     </div>
-                    <div className="text-xs text-muted-foreground flex flex-wrap gap-x-3 mb-2">
-                      {l.email && <span className="flex items-center gap-1"><Mail className="w-3 h-3" /> {l.email}</span>}
-                      {l.phone && <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {l.phone}</span>}
+                    <div className="text-xs text-muted-foreground flex flex-col sm:flex-row sm:flex-wrap sm:gap-x-3 gap-y-0.5 mb-2">
+                      {l.email && <span className="flex items-center gap-1 min-w-0"><Mail className="w-3 h-3 shrink-0" /> <span className="truncate">{l.email}</span></span>}
+                      {l.phone && <span className="flex items-center gap-1"><Phone className="w-3 h-3 shrink-0" /> {l.phone}</span>}
                     </div>
                     <p className="text-sm text-foreground/80 line-clamp-2">{l.message}</p>
                   </div>
-                  <span className="text-xs text-muted-foreground shrink-0 editorial-num">
+                  <span className="text-[10px] sm:text-xs text-muted-foreground shrink-0 editorial-num text-right">
                     {formatDistanceToNow(new Date(l.created_at), { addSuffix: true, locale: pt })}
                   </span>
                 </button>
