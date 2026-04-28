@@ -67,7 +67,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="font-display text-4xl mb-1">Dashboard</h1>
+        <h1 className="font-display text-3xl sm:text-4xl mb-1">Dashboard</h1>
         <p className="text-sm text-muted-foreground">Resumo da atividade Ecofachadas.</p>
       </div>
 
@@ -84,8 +84,8 @@ const Dashboard = () => {
       </div>
 
       <div className="border border-border bg-card">
-        <div className="flex items-center justify-between p-6 border-b border-border">
-          <h2 className="font-display text-2xl">Últimos pedidos</h2>
+        <div className="flex items-center justify-between gap-3 p-4 sm:p-6 border-b border-border">
+          <h2 className="font-display text-xl sm:text-2xl">Últimos pedidos</h2>
           <Link to="/admin/pedidos" className="text-sm text-muted-foreground hover:text-foreground transition">Ver todos →</Link>
         </div>
         {loading ? (
@@ -95,7 +95,7 @@ const Dashboard = () => {
         ) : (
           <ul className="divide-y divide-border">
             {recent.map((l) => (
-              <li key={l.id} className="p-6 hover:bg-muted/40 transition">
+              <li key={l.id} className="p-4 sm:p-6 hover:bg-muted/40 transition">
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-3 mb-1">
